@@ -3,22 +3,20 @@ const party = require('../models/party');
 const router = express.Router();
 const participant = require("../models/participants");
 
-router.get("/login", (req, res) => {
+router.get("/login1", (req, res) => {
+    res.render("teacher/option");
+});
+router.get("/tlogin", (req, res) => {
     res.render("teacher/teacherLogin");
 });
-router.get("/option", (req,res) => {
-    res.render("teacher/option")
-})
-router.post("/login", (req, res) => {
-    if(req.body.password == "asdf"){
-        res.redirect("/teacher/option");
-    }
-    else{
-        res.render("teacher/teacherLogin", {
-            error : "Please Enter Correct Password !!"
-        })
-    }
-});
+///////////////
+///////////////////
+router.post("/tlogin", async  (req, res) => {
+    const partycode1 = req.body.name;
+    const individualStudent = await party.find({partycode:partycode1}); 
+    res.render("teacher/viewall", {student:individualStudent});
+  });
+////////////////////////////////////
 router.get("/add", (req, res) => {
     res.render("teacher/addparty");
 });
@@ -52,10 +50,6 @@ router.post("/add", async (req, res) => {
 
 
 ///////////////////////////////////////////////////////////////////
-router.get("/viewall", async (req, res) => {
-    const allStudents = await party.find() 
-    res.render("teacher/viewall", {student : allStudents})
-});
 router.get("/delete/:id", async (req, res) => {
     await party.findByIdAndDelete(req.params.id)
     res.redirect("/teacher/viewall")

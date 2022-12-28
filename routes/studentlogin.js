@@ -13,12 +13,7 @@ router.post("/login", async (req, res) => {
 
     const partycode1 = req.body.partycode;
     const individualStudent = await Party.find({partycode:partycode1});
-    if(!individualStudent){
-      res.render("student/login", {
-        error : "Login with correct user name"
-      })
-    }
-   
+
     res.render("student/view", { one : individualStudent})
 });
 
