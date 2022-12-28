@@ -1,0 +1,17 @@
+<h1 style="text-align: center; margin-top: 30px;">All Participants</h1>
+<div class="tableDiv">
+  <table class="table table-striped">
+    <td>Name</td>
+    <td>Email</td>
+    <tbody>
+        <%  chutiya.forEach(element => { %>
+            <tr class="head">
+                <th scope="row"><%= element.name %></th>
+                 <td><%= element.contribution %></td>
+              </tr>
+        <%}) %>
+    </tbody>
+  </table>
+</div>
+<!-- but one confusion how can i say the object is array ju-->
+<!-- what about the student_name and studnt its my mistake plan change karnebro you actually wastesmy 10 minssorry sir 

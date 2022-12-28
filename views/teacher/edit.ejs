@@ -1,0 +1,13 @@
+<h2>Adding Participant in <%= user.name %> </h2>
+<form method="POST" class="addStu" autocomplete="off">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Name : </label>
+      <input type="text" name="participant_name" required class="form-control" value="<%= user.participant_name %> " id="exampleInputEmail1">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email: </label>
+      <input type="text" name="participant_contri" required class="form-control" value="<%= user.participant_contri %> " id="exampleInputEmail1">
+    </div>
+   
+    <button type="submit" class="btn btn-success">Add Particpant</button>
+</form>
